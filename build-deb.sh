@@ -6,11 +6,12 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 STAGE="$ROOT/packaging/deb"
 VERSION="${1:-0.1.0}"
 
-# Clean stage (keep DEBIAN)
-find "$STAGE" -mindepth 1 -maxdepth 1 ! -name DEBIAN -exec rm -rf {} +
+# Prepare stage
+mkdir -p "$STAGE"
+find "$STAGE" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
 
 # Stage files
-mkdir -p "$STAGE/usr/lib/bios-viewer" "$STAGE/usr/bin" "$STAGE/usr/share/applications"
+mkdir -p "$STAGE/DEBIAN" "$STAGE/usr/lib/bios-viewer" "$STAGE/usr/bin" "$STAGE/usr/share/applications"
 cp -r "$ROOT/src/bios_viewer" "$STAGE/usr/lib/bios-viewer/bios_viewer"
 cp -r "$ROOT/assets" "$STAGE/usr/lib/bios-viewer/assets"
 
