@@ -12,6 +12,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk  # type: ignore  # noqa: E402
 
 from .bridge import Bridge
+from . import __version__
 from .config import AppConfig
 from .logging import setup as setup_logging
 from .window import MainWindow
@@ -22,6 +23,9 @@ def build_bridge() -> Bridge:
 
     def ping(_payload: dict) -> dict:
         return {"pong": True}
+
+    def get_version(_payload: dict) -> dict:
+        return {"version": __version__}
 
     def get_identity(_payload: dict) -> dict:
         from .collectors import dmi
@@ -70,6 +74,7 @@ def build_bridge() -> Bridge:
         return {"firmware": firmware.collect()}
 
     bridge.register("ping", ping)
+    bridge.register("get_version", get_version)
     bridge.register("get_identity", get_identity)
     bridge.register("get_settings", get_settings)
     bridge.register("get_security", get_security)
@@ -93,8 +98,12 @@ class Application(Gtk.Application):
 
 
 def main(argv: list[str] | None = None) -> int:
+    args = argv if argv is not None else sys.argv[1:]
+    if args and args[0] in {"--version", "-V"}:
+        print(__version__)
+        return 0
     config = AppConfig.from_env()
     log = setup_logging(config.log_level)
-    log.info("starting %s", config.app_id)
+    log.info("starting %s %s", config.app_id, __version__)
     app = Application(config)
-    return app.run(argv if argv is not None else sys.argv[1:])
+    return app.run(args)
