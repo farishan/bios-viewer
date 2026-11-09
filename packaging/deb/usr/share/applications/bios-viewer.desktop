@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=BIOS Viewer
-Comment=Read-only BIOS/firmware settings viewer
-Exec=/usr/bin/bios-viewer
-Icon=applications-system
-Terminal=false
-Categories=System;Utility;
-StartupNotify=true

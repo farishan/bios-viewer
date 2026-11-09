@@ -7,4 +7,4 @@ dist/
 .mypy_cache/
 .ruff_cache/
 *.log
-.venv/
+.venv/packaging/deb
