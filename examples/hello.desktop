@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=BIOS Viewer
+Comment=Read-only BIOS/firmware settings viewer
+Exec=python3 -m bios_viewer
+Icon=applications-system
+Terminal=false
+Categories=System;Utility;
+StartupNotify=true

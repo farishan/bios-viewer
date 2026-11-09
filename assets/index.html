@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BIOS Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>BIOS Viewer</h1>
+    <p class="subtitle">Read-only firmware/BIOS settings for this machine</p>
+    <div class="toolbar">
+      <button id="refreshBtn">Refresh</button>
+      <label class="toggle"><input type="checkbox" id="readValues" /> Read current values (admin)</label>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="identity">Identity</button>
+    <button class="tab" data-tab="settings">BIOS Settings</button>
+    <button class="tab" data-tab="security">Security (HSI)</button>
+    <button class="tab" data-tab="boot">Boot</button>
+    <button class="tab" data-tab="ec">Embedded Controller</button>
+    <button class="tab" data-tab="firmware">Firmware</button>
+  </nav>
+
+  <main>
+    <section id="identity" class="tabpane active"></section>
+    <section id="settings" class="tabpane"></section>
+    <section id="security" class="tabpane"></section>
+    <section id="boot" class="tabpane"></section>
+    <section id="ec" class="tabpane"></section>
+    <section id="firmware" class="tabpane"></section>
+  </main>
+
+  <footer>
+    <small>Read-only. BIOS changes can brick the machine; not supported here.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
