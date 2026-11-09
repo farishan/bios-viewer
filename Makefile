@@ -17,5 +17,14 @@ smoke: lint
 install:
 	$(PYTHON) -m pip install --user .
 
+install-local:
+	./install.sh
+
+uninstall-local:
+	./uninstall.sh
+
+build-deb:
+	./build-deb.sh
+
 clean:
 	rm -rf build dist *.egg-info .pytest_cache __pycache__ src/*/__pycache__ tests/__pycache__

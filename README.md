@@ -33,6 +33,32 @@ PYTHONPATH=src python3 -m bios_viewer
 For current BIOS values, check "Read current values (admin)" — triggers a
 polkit authentication prompt.
 
+## Installation
+
+Three options (pick one):
+
+### 1. pip (developer)
+```bash
+make install          # pip install --user .
+bios-viewer
+```
+
+### 2. Manual local install (no pip, no sudo)
+```bash
+make install-local     # or: ./install.sh
+bios-viewer           # ~/.local/bin must be on PATH
+make uninstall-local   # to remove
+```
+Copies the package + assets into `~/.local/lib/bios-viewer` and creates a
+wrapper + `.desktop` entry. No build step, no pip.
+
+### 3. Debian package (system-wide, requires sudo)
+```bash
+make build-deb        # produces dist/bios-viewer_0.1.0_all.deb
+sudo dpkg -i dist/bios-viewer_0.1.0_all.deb
+sudo apt-get -f install   # pull in python3-gi, libwebkit2gtk-4.0-37, ...
+```
+
 ## System dependencies
 
 ```bash

@@ -1,0 +1,4 @@
+#!/bin/sh
+export PYTHONPATH="/usr/lib/bios-viewer${PYTHONPATH:+:$PYTHONPATH}"
+export BIOS_VIEWER_ASSETS="/usr/lib/bios-viewer/assets"
+exec python3 -m bios_viewer "$@"
