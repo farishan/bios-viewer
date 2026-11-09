@@ -13,6 +13,7 @@ find "$STAGE" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
 # Stage files
 mkdir -p "$STAGE/DEBIAN" "$STAGE/usr/lib/bios-viewer" "$STAGE/usr/bin" "$STAGE/usr/share/applications"
 cp -r "$ROOT/src/bios_viewer" "$STAGE/usr/lib/bios-viewer/bios_viewer"
+find "$STAGE/usr/lib/bios-viewer/bios_viewer" -name __pycache__ -type d -prune -exec rm -rf {} +
 cp -r "$ROOT/assets" "$STAGE/usr/lib/bios-viewer/assets"
 
 # Wrapper
