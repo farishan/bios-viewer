@@ -1,0 +1,5 @@
+/* BIOS Viewer app-specific styles on top of monokit.css */
+.scroll { overflow-x: auto; }
+.filter input { max-width: 360px; }
+.muted { color: var(--muted); }
+footer { padding: var(--s3) var(--s4); color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }

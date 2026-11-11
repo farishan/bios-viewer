@@ -8,3 +8,7 @@ dist/
 .ruff_cache/
 *.log
 .venv/packaging/deb
+
+# secrets
+.env
+.env.*

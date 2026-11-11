@@ -1,0 +1,10 @@
+Package: bios-viewer
+Version: 0.2.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-gi, libgtk-3-0, libwebkit2gtk-4.0-37
+Maintainer: Faris Han <faris@example.com>
+Description: Read-only BIOS/firmware settings viewer for Linux
+ Aggregates firmware-attributes, fwupd HSI, boot, EC, and firmware
+ update history. Read-only by design.

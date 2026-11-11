@@ -1,5 +1,8 @@
 # BIOS Viewer
 
+![License](https://img.shields.io/github/license/farishan/bios-viewer) ![Stars](https://img.shields.io/github/stars/farishan/bios-viewer)
+
+
 A **read-only BIOS/firmware settings viewer** for Linux machines that expose
 the `firmware-attributes` sysfs class (notably Lenovo ThinkPad). Built on
 the [ubuntu-native-app-starter](https://github.com/farishan/ubuntu-native-app-starter)

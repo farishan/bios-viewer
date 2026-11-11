@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>BIOS Viewer</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="monokit.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="row" style="justify-content:space-between;padding-bottom:var(--s5)">
+      <div class="col" style="gap:6px">
+        <h1>BIOS Viewer</h1>
+        <p class="muted">Read-only firmware/BIOS settings for this machine.</p>
+      </div>
+      <div class="row">
+        <label class="check"><span class="switch"><input type="checkbox" id="readValues"><i></i></span> Read values (admin)</label>
+        <button class="btn sm secondary" id="refreshBtn">Refresh</button>
+        <button class="btn sm secondary" id="theme">Theme</button>
+      </div>
+    </header>
+
+    <section style="border-top:0;padding-top:0">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-t="identity">Identity</button>
+        <button class="tab" role="tab" aria-selected="false" data-t="settings">BIOS Settings</button>
+        <button class="tab" role="tab" aria-selected="false" data-t="security">Security (HSI)</button>
+        <button class="tab" role="tab" aria-selected="false" data-t="boot">Boot</button>
+        <button class="tab" role="tab" aria-selected="false" data-t="ec">Embedded Controller</button>
+        <button class="tab" role="tab" aria-selected="false" data-t="firmware">Firmware</button>
+      </div>
+      <div class="panel" data-p="identity"></div>
+      <div class="panel" data-p="settings" hidden></div>
+      <div class="panel" data-p="security" hidden></div>
+      <div class="panel" data-p="boot" hidden></div>
+      <div class="panel" data-p="ec" hidden></div>
+      <div class="panel" data-p="firmware" hidden></div>
+    </section>
+
+    <section>
+      <div class="list">
+        <div><span>Version</span><span class="muted" id="versionLabel">v0.2.0</span></div>
+        <div><span>License</span><span class="muted">GPL-3.0-or-later</span></div>
+      </div>
+    </section>
+  </div>
+  <script src="monokit.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
